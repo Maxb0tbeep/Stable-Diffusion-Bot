@@ -29,23 +29,27 @@ module.exports = {
                 .setDescription('The Seed to generate of off')
                 .setRequired(false)),
 	async execute(interaction) {
-        const prompt = interaction.options.getString('prompt');
-        const negPrompt = interaction.options.getString('negative-prompt');
-        const steps = interaction.options.getInteger('steps');
-        const seed = interaction.options.getInteger('seed');
+        var prompt = interaction.options.getString('prompt');
+        var negPrompt = interaction.options.getString('negative-prompt');
+        var steps = interaction.options.getInteger('steps');
+        var seed = interaction.options.getInteger('seed');
+
+        if(negPrompt == null){
+            negPrompt = "none"
+        }
+        if(seed == null){
+            seed = Math.floor(Math.random() * (9223372036854775807 - 1) + 1);
+        }
 
         const exampleEmbed = new EmbedBuilder()
-        .setColor(0x0099FF)
-        .setTitle('Some title')
-        .setURL('https://discord.js.org/')
-        .setAuthor({ name: 'Some name', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
-        .setDescription('Some description here')
-        .setImage('https://i.imgur.com/AfFp7pu.png')
-        .setTimestamp()
-        .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+            .setTitle('Stable Diffusion')
+            .setURL('https://github.com/Maxb0tbeep/Stable-Diffusion-Bot')
+            .setDescription(`Prompt: ${prompt}, Negative Prompt: ${negPrompt}, Steps: ${steps}, Seed: ${seed}`)
+            .setImage('https://i.imgur.com/AfFp7pu.png')
+            .setTimestamp()
+
 
         await interaction.reply({ embeds: [exampleEmbed] });
 
-//		await interaction.reply(`Prompt: ${prompt}, Negative Prompt: ${negPrompt}, Steps: ${steps}, Seed: ${seed}`);
-	},
+    },
 };

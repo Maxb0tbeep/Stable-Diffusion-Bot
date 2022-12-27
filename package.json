@@ -4,7 +4,7 @@
   "description": "stable diffusion discord bot that runs locally on the server",
   "main": "index.js",
   "scripts": {
-      "dev": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "author": "Maxb0tbeep",
   "license": "ISC",
