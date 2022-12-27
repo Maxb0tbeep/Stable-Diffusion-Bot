@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -33,6 +34,18 @@ module.exports = {
         const steps = interaction.options.getInteger('steps');
         const seed = interaction.options.getInteger('seed');
 
-		await interaction.reply(`Prompt: ${prompt}, Negative Prompt: ${negPrompt}, Steps: ${steps}, Seed: ${seed}`);
+        const exampleEmbed = new EmbedBuilder()
+        .setColor(0x0099FF)
+        .setTitle('Some title')
+        .setURL('https://discord.js.org/')
+        .setAuthor({ name: 'Some name', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
+        .setDescription('Some description here')
+        .setImage('https://i.imgur.com/AfFp7pu.png')
+        .setTimestamp()
+        .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+        await interaction.reply({ embeds: [exampleEmbed] });
+
+//		await interaction.reply(`Prompt: ${prompt}, Negative Prompt: ${negPrompt}, Steps: ${steps}, Seed: ${seed}`);
 	},
 };

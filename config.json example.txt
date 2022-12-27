@@ -1,0 +1,8 @@
+1. Rename this file to "config.json"
+2. fill in token and clientId fields
+3. delete these steps (there should only be 4 lines)
+
+{
+    "token": "enter your token here",
+    "clientId": "enter your client ID here"
+}
