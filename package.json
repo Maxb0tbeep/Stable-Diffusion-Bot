@@ -1,0 +1,15 @@
+{
+  "name": "stable-diffusion-bot",
+  "version": "1.0.0",
+  "description": "stable diffusion discord bot that runs locally on the server",
+  "main": "index.js",
+  "scripts": {
+      "dev": "nodemon index.js"
+  },
+  "author": "Maxb0tbeep",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "nodemon": "^2.0.20"
+  }
+}
